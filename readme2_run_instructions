@@ -1,0 +1,88 @@
+---
+
+#  How to Run This Project Locally
+
+## 1. Start MongoDB (Docker)
+
+Make sure Docker Desktop is running.
+
+Start the existing MongoDB container:
+
+```bash
+docker start mongodb_dockerhub
+```
+
+If the container does not exist, create it:
+
+```bash
+docker run --name mongodb_dockerhub -p 27017:27017 \
+-e MONGO_INITDB_ROOT_USERNAME=admin \
+-e MONGO_INITDB_ROOT_PASSWORD=secret \
+-d mongo:latest
+```
+
+---
+
+## 2. Start the Back-End Server
+
+Navigate to the back-end directory:
+
+```bash
+cd back-end
+npm install
+npm start
+```
+
+The server runs on:
+
+```
+http://localhost:5002
+```
+
+The custom About route is available at:
+
+```
+http://localhost:5002/about
+```
+
+---
+
+## 3. Start the Front-End Server
+
+Open a new terminal and run:
+
+```bash
+cd front-end
+npm install
+npm start
+```
+
+The React app runs at:
+
+```
+http://localhost:7002
+```
+
+---
+
+## 4. About Us Page
+
+The "About Us" page can be accessed at:
+
+```
+http://localhost:7002/about
+```
+
+The page content (text and image URL) is retrieved dynamically from the back-end `/about` route as JSON.
+
+---
+
+#  Project Overview
+
+This is a full MERN-stack application:
+
+- Front-end: React
+- Back-end: Express
+- Database: MongoDB (via Mongoose)
+
+The About Us page demonstrates dynamic data flow between the front-end and back-end.
