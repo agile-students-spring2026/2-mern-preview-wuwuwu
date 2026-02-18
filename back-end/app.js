@@ -22,6 +22,22 @@ mongoose
 const { Message } = require('./models/Message')
 const { User } = require('./models/User')
 
+// -------------------------
+// NEW: About Us JSON route
+// -------------------------
+app.get('/about', (req, res) => {
+  res.json({
+    title: 'About Us',
+    paragraphs: [
+      "Hi, my name is Kaiyuan Wu. I'm currently studying computer science and learning full-stack web development.",
+      "I've been working with the MERN stack recently, trying to understand how the front end and back end connect to each other in a real application.",
+      "This project helped me get more comfortable with Express routes, React components, and how to send and receive JSON data between different parts of an app."
+    ],
+    imageUrl: 'http://localhost:7002/about-photo.png',
+    imageAlt: 'Photo of me'
+  })
+})
+
 // a route to handle fetching all messages
 app.get('/messages', async (req, res) => {
   // load all messages from database
@@ -57,6 +73,7 @@ app.get('/messages/:messageId', async (req, res) => {
     })
   }
 })
+
 // a route to handle logging out users
 app.post('/messages/save', async (req, res) => {
   // try to save the message to the database
